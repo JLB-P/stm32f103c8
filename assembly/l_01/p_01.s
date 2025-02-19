@@ -1,5 +1,6 @@
 ;area de constantes y variables
 ;-------------------------
+;lkdalkjdlajdlkajjddka
 			area constantes, data, readonly 	;area de código de solo lectura	
 DIR_SRAM 	equ	0x20000000	
 ;area de programaOptions for target como
