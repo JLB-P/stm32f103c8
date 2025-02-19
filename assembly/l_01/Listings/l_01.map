@@ -11,7 +11,7 @@ Section Cross References
     startup_stm32f10x_md.o(RESET) refers to startup_stm32f10x_md.o(.text) for Reset_Handler
     startup_stm32f10x_md.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32f10x_md.o(.text) refers to system_stm32f10x.o(.text.SystemInit) for SystemInit
-    startup_stm32f10x_md.o(.text) refers to p_01.o(p_02) for __main
+    startup_stm32f10x_md.o(.text) refers to p_01.o(l_01) for __main
     startup_stm32f10x_md.o(.text) refers to startup_stm32f10x_md.o(HEAP) for Heap_Mem
     startup_stm32f10x_md.o(.text) refers to startup_stm32f10x_md.o(STACK) for Stack_Mem
     system_stm32f10x.o(.text.SystemInit) refers to system_stm32f10x.o(.text.SetSysClock) for SetSysClock
@@ -61,7 +61,7 @@ Image Symbol Table
     SetSysClockTo72                          0x0800013d   Thumb Code   290  system_stm32f10x.o(.text.SetSysClockTo72)
     [Anonymous Symbol]                       0x0800013c   Section        0  system_stm32f10x.o(.text.SetSysClockTo72)
     [Anonymous Symbol]                       0x08000260   Section        0  system_stm32f10x.o(.text.SystemInit)
-    p_02                                     0x080002c8   Section       68  p_01.o(p_02)
+    l_01                                     0x080002c8   Section       68  p_01.o(l_01)
     Heap_Mem                                 0x20000000   Data         512  startup_stm32f10x_md.o(HEAP)
     HEAP                                     0x20000000   Section      512  startup_stm32f10x_md.o(HEAP)
     Stack_Mem                                0x20000200   Data        1024  startup_stm32f10x_md.o(STACK)
@@ -134,7 +134,7 @@ Image Symbol Table
     __rt_heap_escrow$2region                 0x0800012f   Thumb Code     2  heapauxi.o(.text)
     __rt_heap_expand$2region                 0x08000131   Thumb Code     2  heapauxi.o(.text)
     SystemInit                               0x08000261   Thumb Code   102  system_stm32f10x.o(.text.SystemInit)
-    __main                                   0x080002c9   Thumb Code     0  p_01.o(p_02)
+    __main                                   0x080002c9   Thumb Code     0  p_01.o(l_01)
 
 
 
@@ -159,7 +159,7 @@ Memory Map of the image
     0x0800025e   0x0800025e   0x00000002   PAD
     0x08000260   0x08000260   0x00000066   Code   RO           15    .text.SystemInit    system_stm32f10x.o
     0x080002c6   0x080002c6   0x00000002   PAD
-    0x080002c8   0x080002c8   0x00000044   Code   RO            2  * p_02                p_01.o
+    0x080002c8   0x080002c8   0x00000044   Code   RO            2  * l_01                p_01.o
 
 
     Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0800030c, Size: 0x00000600, Max: 0x00005000, ABSOLUTE)

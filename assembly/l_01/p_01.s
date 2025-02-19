@@ -4,7 +4,7 @@
 DIR_SRAM 	equ	0x20000000	
 ;area de programaOptions for target como
 ;----------------
-			area p_02, code, readonly 	; area de código de solo lectura
+			area l_01, code, readonly 	; area de código de solo lectura
 			entry
 			export __main				; se exporta a startup_stm32f10x_md.s
 			
