@@ -4,7 +4,6 @@ Component: Arm Compiler for Embedded 6.22 Tool: armlink [5ee90200]
 
 Section Cross References
 
-    p_02.o(l_02) refers to p_02.o(mis_variables) for input
     startup_stm32f10x_md.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32f10x_md.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32f10x_md.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
@@ -12,7 +11,7 @@ Section Cross References
     startup_stm32f10x_md.o(RESET) refers to startup_stm32f10x_md.o(.text) for Reset_Handler
     startup_stm32f10x_md.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32f10x_md.o(.text) refers to system_stm32f10x.o(.text.SystemInit) for SystemInit
-    startup_stm32f10x_md.o(.text) refers to p_02.o(l_02) for __main
+    startup_stm32f10x_md.o(.text) refers to l_03.o(p_01) for __main
     startup_stm32f10x_md.o(.text) refers to startup_stm32f10x_md.o(HEAP) for Heap_Mem
     startup_stm32f10x_md.o(.text) refers to startup_stm32f10x_md.o(STACK) for Stack_Mem
     system_stm32f10x.o(.text.SystemInit) refers to system_stm32f10x.o(.text.SetSysClock) for SetSysClock
@@ -29,6 +28,7 @@ Section Cross References
 
 Removing Unused input sections from the image.
 
+    Removing l_03.o(constantes), (0 bytes).
     Removing system_stm32f10x.o(.text), (0 bytes).
     Removing system_stm32f10x.o(.ARM.exidx.text.SystemInit), (8 bytes).
     Removing system_stm32f10x.o(.ARM.exidx.text.SetSysClock), (8 bytes).
@@ -38,7 +38,7 @@ Removing Unused input sections from the image.
     Removing system_stm32f10x.o(.data.SystemCoreClock), (4 bytes).
     Removing system_stm32f10x.o(.rodata.AHBPrescTable), (16 bytes).
 
-8 unused section(s) (total 342 bytes) removed from the image.
+9 unused section(s) (total 342 bytes) removed from the image.
 
 ==============================================================================
 
@@ -49,9 +49,9 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     ../clib/heapaux.c                        0x00000000   Number         0  heapauxi.o ABSOLUTE
+    L_03.s                                   0x00000000   Number         0  l_03.o ABSOLUTE
     RTE/Device/STM32F103C8/startup_stm32f10x_md.s 0x00000000   Number         0  startup_stm32f10x_md.o ABSOLUTE
     dc.s                                     0x00000000   Number         0  dc.o ABSOLUTE
-    p_02.s                                   0x00000000   Number         0  p_02.o ABSOLUTE
     system_stm32f10x.c                       0x00000000   Number         0  system_stm32f10x.o ABSOLUTE
     RESET                                    0x08000000   Section      236  startup_stm32f10x_md.o(RESET)
     .text                                    0x080000ec   Section       64  startup_stm32f10x_md.o(.text)
@@ -61,14 +61,12 @@ Image Symbol Table
     SetSysClockTo72                          0x0800013d   Thumb Code   290  system_stm32f10x.o(.text.SetSysClockTo72)
     [Anonymous Symbol]                       0x0800013c   Section        0  system_stm32f10x.o(.text.SetSysClockTo72)
     [Anonymous Symbol]                       0x08000260   Section        0  system_stm32f10x.o(.text.SystemInit)
-    l_02                                     0x080002c8   Section       32  p_02.o(l_02)
-    input                                    0x20000000   Data           4  p_02.o(mis_variables)
-    mis_variables                            0x20000000   Section        4  p_02.o(mis_variables)
-    Heap_Mem                                 0x20000008   Data         512  startup_stm32f10x_md.o(HEAP)
-    HEAP                                     0x20000008   Section      512  startup_stm32f10x_md.o(HEAP)
-    Stack_Mem                                0x20000208   Data        1024  startup_stm32f10x_md.o(STACK)
-    STACK                                    0x20000208   Section     1024  startup_stm32f10x_md.o(STACK)
-    __initial_sp                             0x20000608   Data           0  startup_stm32f10x_md.o(STACK)
+    p_01                                     0x080002c8   Section       60  l_03.o(p_01)
+    Heap_Mem                                 0x20000000   Data         512  startup_stm32f10x_md.o(HEAP)
+    HEAP                                     0x20000000   Section      512  startup_stm32f10x_md.o(HEAP)
+    Stack_Mem                                0x20000200   Data        1024  startup_stm32f10x_md.o(STACK)
+    STACK                                    0x20000200   Section     1024  startup_stm32f10x_md.o(STACK)
+    __initial_sp                             0x20000600   Data           0  startup_stm32f10x_md.o(STACK)
 
     Global Symbols
 
@@ -136,7 +134,7 @@ Image Symbol Table
     __rt_heap_escrow$2region                 0x0800012f   Thumb Code     2  heapauxi.o(.text)
     __rt_heap_expand$2region                 0x08000131   Thumb Code     2  heapauxi.o(.text)
     SystemInit                               0x08000261   Thumb Code   102  system_stm32f10x.o(.text.SystemInit)
-    __main                                   0x080002c9   Thumb Code     0  p_02.o(l_02)
+    __main                                   0x080002c9   Thumb Code     0  l_03.o(p_01)
 
 
 
@@ -146,9 +144,9 @@ Memory Map of the image
 
   Image Entry point : 0x080002c9
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000002f0, Max: 0x00010000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000304, Max: 0x00010000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x000002e8, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000304, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -161,17 +159,15 @@ Memory Map of the image
     0x0800025e   0x0800025e   0x00000002   PAD
     0x08000260   0x08000260   0x00000066   Code   RO           15    .text.SystemInit    system_stm32f10x.o
     0x080002c6   0x080002c6   0x00000002   PAD
-    0x080002c8   0x080002c8   0x00000020   Code   RO            2  * l_02                p_02.o
+    0x080002c8   0x080002c8   0x0000003c   Code   RO            2  * p_01                l_03.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x080002e8, Size: 0x00000608, Max: 0x00005000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08000304, Size: 0x00000600, Max: 0x00005000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x080002e8   0x00000004   Data   RW            1    mis_variables       p_02.o
-    0x20000004   0x080002ec   0x00000004   PAD
-    0x20000008        -       0x00000200   Zero   RW            8    HEAP                startup_stm32f10x_md.o
-    0x20000208        -       0x00000400   Zero   RW            7    STACK               startup_stm32f10x_md.o
+    0x20000000        -       0x00000200   Zero   RW            8    HEAP                startup_stm32f10x_md.o
+    0x20000200        -       0x00000400   Zero   RW            7    STACK               startup_stm32f10x_md.o
 
 
 ==============================================================================
@@ -181,14 +177,14 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        32          6          0          4          0        232   p_02.o
+        60         20          0          0          0        240   l_03.o
         64         26        236          0       1536        796   startup_stm32f10x_md.o
        400          0          0          0          0       2918   system_stm32f10x.o
 
     ----------------------------------------------------------------------
-       500         32        236          4       1540       3946   Object Totals
+       528         46        236          0       1536       3954   Object Totals
          0          0          0          0          0          0   (incl. Generated)
-         4          0          0          0          4          0   (incl. Padding)
+         4          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -216,15 +212,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-       508         32        236          4       1540       4098   Grand Totals
-       508         32        236          4       1540       4098   ELF Image Totals
-       508         32        236          4          0          0   ROM Totals
+       536         46        236          0       1536       4106   Grand Totals
+       536         46        236          0       1536       4106   ELF Image Totals
+       536         46        236          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                  744 (   0.73kB)
-    Total RW  Size (RW Data + ZI Data)              1544 (   1.51kB)
-    Total ROM Size (Code + RO Data + RW Data)        748 (   0.73kB)
+    Total RO  Size (Code + RO Data)                  772 (   0.75kB)
+    Total RW  Size (RW Data + ZI Data)              1536 (   1.50kB)
+    Total ROM Size (Code + RO Data + RW Data)        772 (   0.75kB)
 
 ==============================================================================
 
