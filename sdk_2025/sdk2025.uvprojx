@@ -394,6 +394,11 @@
               <FileType>1</FileType>
               <FilePath>.\gpio.c</FilePath>
             </File>
+            <File>
+              <FileName>leds.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\leds.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -403,6 +408,26 @@
               <FileName>gpio.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>leds.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\leds.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>system library</GroupName>
+          <Files>
+            <File>
+              <FileName>systickdelay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\systickdelay.c</FilePath>
+            </File>
+            <File>
+              <FileName>systickdelay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\systickdelay.h</FilePath>
             </File>
           </Files>
         </Group>
