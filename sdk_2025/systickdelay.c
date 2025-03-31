@@ -1,8 +1,10 @@
+
 #include <stm32f10x.h>
 
 void systickdelay(int delay)
 {
 	//Sets the reload value (value=36Mhz*200ms)=7200000
+	//Register descripction in Technical Reference Manual (pag.159)
 	SysTick->LOAD = 7200000;
 	
 	//Clears the SysTick current value register
