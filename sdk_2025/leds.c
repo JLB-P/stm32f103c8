@@ -2,6 +2,10 @@
 #include "timers.h"
 #include "delay.h"
 
+void led_off(){
+		GPIOC->ODR |=(1 << 13);
+}
+
 void led_on_off(int repeat){
 		delay_init();
 		for(int i=1; i <= repeat; i++){

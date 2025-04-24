@@ -1,5 +1,6 @@
 #include "stm32f10x.h"
-/* CNT-> counter register
+/*steps to configure timers
+	CNT-> counter register
 	ARR -> Auto Reload Register, his value is continuously compared to CNT
 	CR1 -> Control Register
 	SR -> Status Register when ARR=CNT UIF(update interrupt flag) is set
@@ -51,25 +52,10 @@ void timer3_ch1_pwm(){
 	*/
 	TIM3->PSC=21;			//prescaler value
 	TIM3->ARR=65453;	//Value to compare
-	TIM3->CCR1 = 3273;	//Duty cicle 
+	TIM3->CNT=0;
+	//TIM3->CCR1 = 3273;	//Duty cicle 
 	TIM3->CCMR1 |= (1 << 6) | (1 << 5); //pwm mode1 ch1
 	TIM3->CCMR1 &= ~(1 << 4);
 	TIM3->CCER	|=	(1 << 0);	//ch1 output enable
 	TIM3->CR1		|=	(1 << 0); //counter enabled
-	/*
-	while(1)
-	{
-		for (volatile int i = 0;i < 100;i++)
-			{
-				TIM2->CCR2 = i;
-				for (int j = 0;j < 65453;j++);
-			}
-
-		for (volatile int i = 100;i > 0;i--)
-			{
-				TIM2->CCR2 = i;
-				for (int j = 0;j < 65453;j++);
-			}
-	}
-	*/
 }
